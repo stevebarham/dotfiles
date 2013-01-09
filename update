@@ -1,0 +1,24 @@
+#!/bin/bash
+this=$(basename $0)
+dir=~/.dotfiles           
+olddir=~/.dotfiles/.old  
+
+mkdir -p $olddir
+cd $dir
+
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+for file in *; do
+    if [ "$file" != "$this" ]; then
+        homefile=~/.$file
+	if [ -L "$homefile" ]; then
+		rm "$homefile"
+	elif [ -f "$homefile" ] || [ -d "$homefile" ]; then 
+		echo "Moving $homefile to $olddir ..."
+		mv $homefile $olddir
+        fi
+        echo "Creating symlink from $homefile -> $file ..."
+        ln -s $dir/$file $homefile 
+    fi
+done
+
+echo "Update complete"
