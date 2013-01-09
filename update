@@ -1,24 +1,21 @@
 #!/bin/bash
 this=$(basename $0)
-dir=~/.dotfiles           
-olddir=~/.dotfiles/.old  
+templates=~/.dotfiles           
+backups=~/.dotfiles/.old  
 
-mkdir -p $olddir
-cd $dir
-
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in *; do
-    if [ "$file" != "$this" ]; then
-        homefile=~/.$file
+mkdir -p $backups
+for file in $templates/*; do
+    template=$(basename $file)
+    if [ "$template" != "$this" ]; then
+        homefile=~/.$template
 	if [ -L "$homefile" ]; then
 		rm "$homefile"
 	elif [ -f "$homefile" ] || [ -d "$homefile" ]; then 
-		echo "Moving $homefile to $olddir ..."
-		mv $homefile $olddir
+		echo "Moving $homefile to $backups ..."
+		mv $homefile $backups
         fi
         echo "Creating symlink from $homefile -> $file ..."
-        ln -s $dir/$file $homefile 
+        ln -s $templates/$file $homefile 
     fi
 done
-
 echo "Update complete"
