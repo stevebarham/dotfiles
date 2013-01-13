@@ -10,6 +10,7 @@ colorscheme solarized
 
 "       Toggle search highlighting on F3
 nnoremap <F3> :noh<CR>
+set incsearch
 
 "       Statusline hackery
 set statusline =          " clear
