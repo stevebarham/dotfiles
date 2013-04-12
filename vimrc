@@ -1,18 +1,21 @@
-"       Defaults
+"	Load Pathogen
+execute pathogen#infect()
+
+"	Defaults
 syntax enable
 set number
 
-"       Colours
+"	Colours
 set background=dark
 set t_Co=256
 let g:solarized_termcolors=256
 colorscheme solarized
 
-"       Toggle search highlighting on F3
+"	Toggle search highlighting on F3
 nnoremap <F3> :noh<CR>
 set incsearch
 
-"       Statusline hackery
+"	Statusline hackery
 set statusline =          " clear
 set statusline+=%1*
 set statusline+=\ %02n\  " leading zero 2 digit buffer number
