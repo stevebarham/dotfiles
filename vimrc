@@ -1,34 +1,42 @@
-"	Defaults
+"  Defaults
 syntax on
 filetype plugin indent on
 set number
 set list
+set listchars=tab:>\ ,trail:\$
 
-	"	Load Pathogen
+"  Load Pathogen
 execute pathogen#infect()
 execute pathogen#helptags()
 
-"	Colours
+"  Colours
 set background=dark
 set t_Co=256
 let g:solarized_termcolors=256
 colorscheme solarized
 
-"	Rebind some keys
+"  Rebind some keys
 nnoremap <A-Left> :tabprevious<CR>
 nnoremap <A-Right> :tabnext<CR>
 nnoremap <C-n> :CommandT<CR>
 map <C-e> <Plug>(expand_region_expand)
 map <C-S-e> <Plug>(expand_region_shrink)
 
+"  Map move line up / down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
-"	Toggle search highlighting on F3
+"  Toggle search highlighting on F3
 nnoremap <F3> :noh<CR>
 set incsearch
 set smartcase
 set ignorecase
 
-"	Statusline hackery
+"  Statusline hackery
 set statusline =          " clear
 set statusline+=%1*
 set statusline+=\ %02n\  " leading zero 2 digit buffer number
