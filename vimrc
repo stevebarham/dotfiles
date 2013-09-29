@@ -30,6 +30,9 @@ inoremap <C-k> <ESC>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+"  Leave some space at the top / bottom
+set scrolloff=10
+
 "  Toggle search highlighting on F3
 nnoremap <F3> :noh<CR>
 set incsearch
