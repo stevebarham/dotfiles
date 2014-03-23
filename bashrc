@@ -16,6 +16,7 @@ alias svim=sudoedit
 # Useful aliases
 alias grep="grep --color=auto"
 alias ls="ls -lh --color=auto"
+alias tmux="TERM=screen-256color-bce tmux"
 
 # SSH hosts
 alias ethx="ssh -A ethx.net"

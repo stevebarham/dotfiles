@@ -1,7 +1,12 @@
 #!/bin/bash
 this=$(basename $0)
-templates=~/dotfiles           
-backups=~/dotfiles/.old  
+templates=~/dotfiles
+backups=~/dotfiles/.old
+
+pushd .
+cd $templates
+git pull
+popd
 
 mkdir -p $backups
 for file in $templates/*; do
