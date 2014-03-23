@@ -63,3 +63,6 @@ hi User1 ctermbg=darkgray ctermfg=white cterm=bold
 hi User2 ctermbg=darkred ctermfg=white cterm=bold
 hi User3 ctermbg=black ctermfg=gray
 hi User4 ctermbg=darkgray ctermfg=white cterm=bold
+
+hi TabLineSel ctermfg=darkred ctermbg=white
+hi TabLineFill ctermfg=darkgray ctermbg=black
