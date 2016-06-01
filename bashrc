@@ -24,7 +24,8 @@ alias luna="ssh -A luna.ethx.net"
 alias nostalgia="ssh -A nostalgia.local"
 
 # Delete file names, piecemeal
-stty werase undef
-bind '"\C-w": backward-kill-word'
-bind '"\C-f": undo'
-
+if [ -t 1 ] ; then
+	stty werase undef
+	bind '"\C-w": backward-kill-word'
+	bind '"\C-f": undo'
+fi
